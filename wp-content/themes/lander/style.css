@@ -1,0 +1,9 @@
+/*
+Theme name: Lander page for Simone
+Description: Child theme of Simone that adds a custome one page style front page
+Author: Pius Muriithi Wanjiru
+Version: 0.1
+Template: simone
+*/
+
+@import url('../simone/style.css');
