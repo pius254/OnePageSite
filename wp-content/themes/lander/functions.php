@@ -10,3 +10,4 @@ function lander_scripts(){
 }
 
 add_action('wp_enqueue_scripts', 'lander_scripts');
+add_image_size('testimonial-mug', 253, 253, true);

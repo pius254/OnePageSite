@@ -30,7 +30,36 @@ get_header(); ?>
 			</section>
 			<section id="testimonials">
 				<div class="indent">
-					Testimonials
+					<?php
+					$args = array(
+						'posts_per_page' => 3,
+						'orderby' => 'rand',
+						'category_name' => 'testimonials'
+						);
+					$query = new WP_Query( $args);
+					if ($query->have_posts()) {
+						echo "<ul class='testimonials'>";
+						while ($query->have_posts()) {
+							$query->the_post();
+							echo "<li class='clear'>";
+							echo "<figure class='testimonial-mug'>";
+							the_post_thumbnail('testimonial-mug');
+							echo "</figure>";
+							echo "<aside class='testimonial-text'>";
+							echo "<h3 class='testimonial-name'>" . get_the_title() . "</h3>";
+							echo "<div class='testimonial-excerpt'>";
+							the_content("");
+							echo "</div>";
+							echo "</aside>";
+							echo "</li>";
+						}
+						echo "</ul>";
+					}
+
+					wp_reset_postdata();
+
+					?>
+
 				</div>
 			</section>
 			<section id="services">
