@@ -10,12 +10,22 @@ get_header(); ?>
 
 			<section id="call-to-action">
 				<div class="indent">
-					<div class="front-left">
-						<h2 class="section-title">Call to action</h2>
-					</div>
-					<div class="front-right">
-					Form
-					</div>
+					<?php
+					$query = new WP_Query('pagename=book-an-appointment');
+					//loop
+					if ($query->have_posts()) {
+						while ($query->have_posts()) {
+							$query->the_post();
+							echo "<h2 class='section-title'>".get_the_title()."</h2>";
+							echo "<div class='entry-content'>";
+							the_content();
+							echo "</div>";
+						}
+					}
+					
+					wp_reset_postdata();
+
+					?>
 				</div>
 			</section>
 			<section id="testimonials">
@@ -25,28 +35,63 @@ get_header(); ?>
 			</section>
 			<section id="services">
 				<div class="indent">
-					<h2 class="section-title">Services</h2>
-					Some Text
-					<ul>
-						<li>item 1</li>
-						<li>item 2</li>
-						<li>item 3</li>
-					</ul>
-				</div>
+					<?php
+					$query = new WP_Query('pagename=services');
+					//$services_id = $query->queried_object->2;
+					//loop
+					if ($query->have_posts()) {
+						while ($query->have_posts()) {
+							$query->the_post();
+							//$more = 0;
+							echo "<h2 class='section-title'>".get_the_title()."</h2>";
+							echo "<div class='entry-content'>";
+							the_content('');
+							echo "</div>";
+						}
+					}
+					
+					wp_reset_postdata();
+
+					?>
 			</section>
 			<section id="meet">
 				<div class="indent">
-					<h2 class="section-title">Meet Me</h2>
+					<?php
+					$query = new WP_Query('pagename=meet-me');
+					//loop
+					if ($query->have_posts()) {
+						while ($query->have_posts()) {
+							$query->the_post();
+							echo "<h2 class='section-title'>".get_the_title()."</h2>";
+							echo "<div class='entry-content'>";
+							the_content();
+							echo "</div>";
+						}
+					}
+					
+					wp_reset_postdata();
+
+					?>
 				</div>
 			</section>
 			<section id="contact">
 				<div class="indent">
-					<div class="front-left">
-						<h2 class="section-title">Contact Us</h2>
-					</div>
-					<div class="front-right">
-							Address
-					</div>
+					<?php
+					$query = new WP_Query('pagename=contact');
+					//loop
+					if ($query->have_posts()) {
+						while ($query->have_posts()) {
+							$query->the_post();
+							echo "<h2 class='section-title'>".get_the_title()."</h2>";
+							echo "<div class='entry-content'>";
+							the_content();
+							echo "</div>";
+						}
+					}
+					
+					wp_reset_postdata();
+
+					?>
 				</div>
 			</section>
 
