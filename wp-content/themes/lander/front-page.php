@@ -37,7 +37,8 @@ get_header(); ?>
 				<div class="indent">
 					<?php
 					$query = new WP_Query('pagename=services');
-					//$services_id = $query->queried_object->2;
+					$services_id = $query->queried_object->ID;
+
 					//loop
 					if ($query->have_posts()) {
 						while ($query->have_posts()) {
@@ -50,6 +51,28 @@ get_header(); ?>
 						}
 					}
 					
+					wp_reset_postdata();
+					/*Gets the children of the services page */
+					$args = array(
+						'post_type'=> 'page',
+						'post_parent' => $services_id
+					);
+					$services_query = new WP_query($args);
+					if ($services_query->have_posts()) {
+						echo "<ul class='services-list'>";
+						while ($services_query->have_posts()) {
+							$services_query->the_post();
+							echo "<li class='clear'>";
+							echo "<a href='" .get_permalink() . "' title='Learn more about". get_the_title() . "'>";
+							echo "<h3 class='services-title'>".get_the_title()."<h3>";
+							echo "</a>";
+							echo "<div class='services-lede'>";
+							the_content("Read more...");
+							echo "</div>";
+							echo "</li>";
+						}
+						echo "</ul>";
+					}
 					wp_reset_postdata();
 
 					?>
