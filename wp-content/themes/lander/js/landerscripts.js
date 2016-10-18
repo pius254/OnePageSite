@@ -25,4 +25,14 @@ jQuery(document).ready(function($){
      }
     });
 
+    //fullscreen
+    var wheight = $(window).height();//get height of the window
+    $('.fullheight').css('height',wheight);
+
+  	//resize
+  	$(window).resize(function(){
+    	var wheight = $(window).height();
+    	$('.fullheight').css('height', wheight);
+  	});
+
 });

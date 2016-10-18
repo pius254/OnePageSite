@@ -9,7 +9,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<section id="call-to-action">
-				<div class="indent">
+				<div class="indent fullheight">
 					<?php
 					$query = new WP_Query('pagename=book-an-appointment');
 					//loop
@@ -29,7 +29,7 @@ get_header(); ?>
 				</div>
 			</section>
 			<section id="testimonials">
-				<div class="indent">
+				<div class="indent fullheight">
 					<?php
 					$args = array(
 						'posts_per_page' => 3,
@@ -63,7 +63,7 @@ get_header(); ?>
 				</div>
 			</section>
 			<section id="services">
-				<div class="indent">
+				<div class="indent fullheight">
 					<?php
 					$query = new WP_Query('pagename=services');
 					$services_id = $query->queried_object->ID;
@@ -107,7 +107,7 @@ get_header(); ?>
 					?>
 			</section>
 			<section id="meet">
-				<div class="indent">
+				<div class="indent fullheight">
 					<?php
 					$query = new WP_Query('pagename=meet-me');
 					//loop
@@ -127,7 +127,7 @@ get_header(); ?>
 				</div>
 			</section>
 			<section id="contact">
-				<div class="indent">
+				<div class="indent fullheight">
 					<?php
 					$query = new WP_Query('pagename=contact');
 					//loop
